@@ -6,5 +6,10 @@ pipeline {
         git(url: 'https://github.com/Revature-robert-raphael/Project2-sportsPredictor.git', credentialsId: 'Waterbug23')
       }
     }
+    stage('Maven Build') {
+      steps {
+        sh 'mvn clean package -DskipTests'
+      }
+    }
   }
 }
