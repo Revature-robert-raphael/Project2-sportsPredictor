@@ -9,5 +9,8 @@
         <module name="Project2_sportsPredictor" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Project2_sportsPredictor" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
