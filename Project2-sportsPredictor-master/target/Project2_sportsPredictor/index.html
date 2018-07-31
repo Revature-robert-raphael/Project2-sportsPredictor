@@ -1,0 +1,325 @@
+<!--suppress ALL -->
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<title>ViewSubmissions</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<div id="View Forms content">
+    <div class="header">
+        <h2></h2>
+        <p> </p>
+    </div>
+
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+
+        <h1></h1>
+        <!--<tr ng-repeat="user in $data">-->
+        <!--<td title="'Name'" filter="{ name: 'text'}" sortable="'name'">-->
+        <!--{{myWelcome.id}}</td>-->
+        <!--<td title="'Age'" filter="{ age: 'number'}" sortable="'age'">-->
+        <!--{{myWelcome.name}}</td>-->
+        <!--</tr>-->
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http) {
+            $http.get("http://localhost:8080/services/soccer/all")
+                .then(function(response) {
+                    $scope.myWelcome = response.data;
+                });
+
+
+
+        });
+    </script>
+    <body class="container">
+    <nav class="nav">
+        <ul class="navBar">
+            <li class="nav-item"><a href="welcome.html">MLS Teams</a></li>
+            <li class="nav-item"><a href="viewForms.html"></a></li>
+
+
+        </ul>
+    </nav>
+    <div id="modal">
+        <div id="modal-content"></div>
+    </div>
+
+    <div id="content-outlet"></div>
+    <style>
+
+
+
+        .results-table2{
+            float: left;
+
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            order: 1px solid #dddddd;
+            text-align: left;
+            padding: 5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+
+        body {
+            font-size: 28px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #020c33;
+            position: -webkit-sticky;
+            position: sticky;
+
+            top: 0;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: left;
+            padding: 10px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+
+
+
+    </style>
+
+
+    <div id="flight" float="right">
+
+        <table float="right">
+            <tr>
+                <th>   </th>
+                <th>Win</th>
+                <th>Lose</th>
+                <th>Tie</th>
+            </tr>
+            <tr>
+                <td>Team 1</td>
+                <td>%20</td>
+                <td>%15</td>
+                <td>%40</td>
+            </tr>
+            <tr>
+                <td>Team 2</td>
+                <td>%20</td>
+                <td>%10</td>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+    <select>
+        <option value="German Bundesliga">German Bundesliga</option>
+        <option value="Spanish Primera Division">Spanish Primera Division</option>
+        <option value="Barclays Premier League">Barclays Premier League</option>
+        <option value="French Ligue 1">French Ligue 1</option>
+    </select>
+
+    <div id="flight-search-content"  >
+        <div>
+            <!--<label>Depart: <select name="" id="depart-select"></select></label>-->
+            <!--<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ids.." title="Type in a student Id">-->
+            <!--&lt;!&ndash;//  <input type="text" id="myInput1">&ndash;&gt;-->
+            <!--<button>Search</button>-->
+            <div id="search-results">
+
+                <span class="info" style="display:none">No results found </span>
+                <table class="results-table" style="display: block" style="float: left"  >
+                    <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Names</th>
+                        <th>Spi</th>
+                        <!--<th >Approved</th>-->
+                        <!--<th>Cost</th>-->
+                        <!--<th>Work Description</th>-->
+
+
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </body>
+</div>
+
+
+
+
+<div id="flight-search-content2"  >
+    <div>
+        <!--<label>Depart: <select name="" id="depart-select"></select></label>-->
+        <!--<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ids.." title="Type in a student Id">-->
+        <!--&lt;!&ndash;//  <input type="text" id="myInput1">&ndash;&gt;-->
+        <!--<button>Search</button>-->
+
+        <select>
+            <option value="German Bundesliga">Volvo</option>
+            <option value="Spanish Primera Division">Saab</option>
+            <option value="Barclays Premier League">Opel</option>
+            <option value="French Ligue 1">Audi</option>
+        </select>
+
+        <div id="search-results2">
+
+            <span class="info" style="display:none">No results found </span>
+            <table class="results-table2" style="display: block" >
+                <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Names</th>
+                    <th>Spi</th>
+                    <!--<th >Approved</th>-->
+                    <!--<th>Cost</th>-->
+                    <!--<th>Work Description</th>-->
+
+
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</div>
+
+<script>
+
+    (function () {
+        var departSelect = document.querySelector('#myInput');
+        var myInput=document.querySelector('#myInput');
+        var arriveSelect = document.querySelector('#arrive-select');
+        var searchResults = document.querySelector('#search-results');
+        var info = document.querySelector('.info');
+        var table = document.querySelector('.results-table')
+        var tBody = table.querySelector('tbody');
+        var button=table.querySelector('button');
+        var searchComplete = function(data) {
+            info.style.display = 'none';
+            table.style.display = 'none';
+            tBody.innerHTML = '';
+
+            if(data.length === 0) {
+                info.style.display = 'inherit';
+                return;
+            }
+
+            data.forEach(function(elem, index) {
+                // var openSeats = elem.seats.filter(seat => !seat).length;
+
+                var newElem = document.createElement( 'input' );
+                newElem.type="button";
+                newElem.value="View Person";
+                var row = tBody.insertRow(index);
+
+
+                row.classList.add('table-row');
+
+                //   row.insertCell(0).innerText = elem.id;
+                row.insertCell(0).innerText = elem.clubName;
+                row.insertCell(1).innerText = elem.league;
+                //   row.insertCell(3).innerText = elem.offenseRating;
+                //  row.insertCell(4).innerText = elem.defenseRating;
+                row.insertCell(2).innerText = elem.spi;
+
+            });
+            table.style.display = 'initial';
+        }
+
+
+        // Arrive and Select Buttons fill
+        var codes = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        (function () {
+            codes.forEach(function (elem) {
+                var opt = document.createElement('option');
+                var opt1 = document.createElement('option');
+                opt.value = elem;
+                opt.innerText = elem;
+                opt1.value = elem;
+                opt1.innerText = elem;
+
+                //departSelect.appendChild(opt);
+                // arriveSelect.appendChild(opt1);
+                // myInput.appendChild(myInput.value);
+            });
+        })();
+
+        (function(){
+            //var x = departSelect.value;
+
+            //var y=myInput.value;
+            //var y = arriveSelect.value;\
+            //var url =`http://localhost:8080/viewForms?id=${x}`;
+            var url =`http://localhost:8080/services/soccer/all`;
+
+            fetch(url)
+                .then(function(resp){
+                    return resp.json();
+                })
+                .then(function(json){
+                    searchComplete(json);
+                })
+        })();
+
+        document.querySelector('#flight-search-content button').addEventListener('click',
+            function(evt){
+                var x = departSelect.value;
+                var y=myInput.value;
+                //var y = arriveSelect.value;\
+                var url =`http://localhost:8080/services/soccer/league?league=${y}`;
+                //var url =`http://localhost:8080/viewForms`;
+
+                fetch(url)
+                    .then(function(resp){
+                        return resp.json();
+                    })
+                    .then(function(json){
+                        searchComplete(json);
+                    })
+            });
+    })();
+</script>
+
+
+</body>
+</body>
+</body>
+</html>
