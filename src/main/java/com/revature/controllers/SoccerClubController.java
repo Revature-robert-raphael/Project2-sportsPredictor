@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -34,7 +35,7 @@ public class SoccerClubController {
     }
 
     @GetMapping(path = "/club", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<SoccerClubs>> getSoccerClubsByName(String name){
+    public ResponseEntity<List<SoccerClubs>> getSoccerClubsByName(@RequestParam("name") String name){
         //"Real Madrid"
         List<SoccerClubs> clubs = service.listSoccerClubsByName(name);
         System.out.println();
@@ -42,7 +43,7 @@ public class SoccerClubController {
     }
 
     @GetMapping(path = "/league", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<SoccerClubs>> getSoccerClubsByLeague(String league){
+    public ResponseEntity<List<SoccerClubs>> getSoccerClubsByLeague(@RequestParam("league") String league){
         //"Spanish Primera Division"
         List<SoccerClubs> clubs = service.listSoccerClubsByLeague(league);
         System.out.println();
